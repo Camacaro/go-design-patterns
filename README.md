@@ -25,3 +25,18 @@ Librerias Standars: Prometheus, Helm, etcd, containerd, Jaeger, gRPC y NATS son 
 * Concurrencia de un valor compartido: cómo puedo sincronizar las GoRoutines cuando están accediendo al mismo valor y evitar la condición de carrera.
 * Patrones de diseño: aquellos más frecuentes y que mejores resultados traerán a nuestros problemas.
 * Utilizar el paquete Net para la creación de conexiones TCP que permiten diferentes utilidades como escanear puertos entre otros.
+
+## Patrones de diseño 
+Patrones de diseño: Son planos que nos ayuda a solventar problemas muy comunes a la hora de diseñar software, estos planos los podemos adaptar a nuestras necesidades y a lenguajes de programación específicos.
+
+Los patrones de diseño se categorizan en:
+* Patrones creacionales: Establecen mecanismos para que la creación de objetos pueda ser reutilizable y flexible. Ejemplo: **Factory** y **Singleton**.
+* Patrones estructurales: Establecen mecanismos de como crear objetos en estructuras mas grandes sin perder esa flexibilidad y reusabilidad. Ejemplo: **Adapter**.
+* Patrones de comportamiento: Establecen mecanismos de comunicación efectiva entre estos objetos, asimismo la asignación de responsabilidades de estos. Ejemplo: **Observer** y **Strategy**.
+
+## Recursos 
+* [explicación por patron y ejemplos](https://refactoring.guru/es/design-patterns/go)
+* [Patrones de Diseño en Go - E-book](https://github.com/danielspk/designpatternsingoebook)
+* [los patrones de diseño de Gang of Four](https://springframework.guru/gang-of-four-design-patterns/)
+
+
