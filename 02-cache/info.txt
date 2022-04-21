@@ -1,0 +1,24 @@
+En este ejercicio no se pudo aprovechar de buena 
+forma la concurrencia en el cache. 
+
+1. caheSinConcurrencia: 
+Trabaja de manera normal logrando obtener el resultado
+de un numero repetido y disminuyendo el tiempo para ese 
+elemento
+
+2. cacheConcurrente
+Le hemos agregado goRoutine para ejecute de manera 
+concurrente cada elemento Fibo pero no logra captar
+el resultado previo al mismo elemento dejando casi 
+el mismo valor de tiempo 
+
+3. cacheConCanal
+Se parece un poco mas al caheSinConcurrencia pero es 
+debido a que solo se puede ejecutar dos goRoutine en
+paralelo eserando que se libere alguno para ejecutar
+al siguiente por ende (el valor 42 se encuentra en
+primeta y tercera posicion) busca le valor existen 
+Pero si todos los item son del mismo valor hay dos 
+goRoutine calculando el mismo valor con el mismo tiempo
+por lo cual no es eficiente no esta usando el cache o 
+la espera de lock 

@@ -57,6 +57,7 @@ func GetFibonacci(n int) (interface{}, error) {
 func main() {
 	cache := NewCache(GetFibonacci)
 	fibo := []int{42, 40, 41, 42, 38}
+	// fibo := []int{42, 42, 42, 42, 42}
 
 	var wg sync.WaitGroup
 
