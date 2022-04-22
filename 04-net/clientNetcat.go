@@ -15,6 +15,15 @@ var (
 )
 
 /*
+	Para los que no sepan que es netcat, es una herramienta “simple”
+	que nos sirve para hacer conexiones tcp o udp y enviar datos por
+	las mismas, se puede enviar por ejemplo, una petición http (o si
+	nos vamos a algo mas malvado, una reverse Shell).
+	Si quieren hacer una petición http solo tienen que levantar un server,
+	y escribir las siguientes líneas en que programa que realizamos
+*/
+
+/*
 	Este es nuestro cliente
 
 	-> host:port

@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
+	"log"
 	"net"
 )
 
@@ -58,5 +59,54 @@ func HandleConnection(conn net.Conn) {
 func MessageWrite(conn net.Conn, messages <-chan string) {
 	for msg := range messages {
 		fmt.Fprintln(conn, msg)
+	}
+}
+
+func Broadcast() {
+	clients := make(map[Client]bool)
+
+	for {
+		select {
+		case newClient := <-incomingClients:
+			clients[newClient] = true
+		case leavinglient := <-leavingClients:
+			delete(clients, leavinglient)
+			close(leavinglient)
+		case msg := <-messages:
+			for client := range clients {
+				client <- msg
+			}
+		}
+	}
+}
+
+func main() {
+	flag.Parse()
+
+	// Levantar el servidor, Escuchar ese sitio por ese puerto
+	listener, err := net.Listen("tcp", fmt.Sprintf("%s:%d", *host, *port))
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// No importa no escuchar esta funcion
+	// puede funcionar de manera independiente
+	go Broadcast()
+
+	for {
+		// Le asigna una conexion nueva, a quien se conecte (netcat)
+		conn, err := listener.Accept()
+
+		if err != nil {
+			log.Fatal(err)
+
+			// Este error es para un cliente, si un cliente tiene un error
+			// Que lo notifique pero que continue para que no sea afectado
+			// Los demas clientes
+			continue
+		}
+
+		go HandleConnection(conn)
 	}
 }
